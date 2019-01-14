@@ -17,9 +17,9 @@ window:
   #
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
-  # dimensions:
-  #   columns: 365
-  #   lines: 100
+  dimensions:
+    columns: 80
+    lines: 24
 
   # Window padding (changes require restart)
   #
@@ -37,10 +37,10 @@ window:
   # Values for `decorations`:
   #     - full: Borders and title bar
   #     - none: Neither borders nor title bar
-  decorations: none
+  decorations: full
 
   # When true, alacritty starts maximized.
-  start_maximized: true
+  start_maximized: false
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -70,7 +70,7 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-tabspaces: 8
+tabspaces: 2
 
 # Font configuration (changes require restart)
 #
@@ -92,24 +92,24 @@ tabspaces: 8
 font:
   # Normal (roman) font face
   normal:
-    family: Noto Mono
+    family: monospace
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    #style: Regular
 
   # Bold font face
   bold:
-    family: Noto Mono
+    family: monospace
     # The `style` can be specified to pick a specific face.
     #style: Bold
 
   # Italic font face
   italic:
-    family: Noto Mono
+    family: monospace
     # The `style` can be specified to pick a specific face.
     #style: Italic
 
   # Point size
-  size: 7.0
+  size: 5.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -133,33 +133,71 @@ persistent_logging: false
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Monokai Dark)
+# Colors (Tomorrow Night Bright)
 colors:
+  # Default colors
   primary:
     background: '0x000000'
-    foreground: '0xF8F8F2'
+    foreground: '0xeaeaea'
+
+    # Bright and dim foreground colors
+    #
+    # The dimmed foreground color is calculated automatically if it is not present.
+    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+    # is `false`, the normal foreground color will be used.
+    #dim_foreground: '0x9a9a9a'
+    #bright_foreground: '0xffffff'
+
+  # Cursor colors
+  #
+  # Colors which should be used to draw the terminal cursor. If these are unset,
+  # the cursor color will be the inverse of the cell color.
+  #cursor:
+  #  text: '0x000000'
+  #  cursor: '0xffffff'
 
   # Normal colors
   normal:
-   black:   '0x272822'
-   red:     '0xF92672'
-   green:   '0xA6E22E'
-   yellow:  '0xF4BF75'
-   blue:    '0x66D9EF'
-   magenta: '0xAE81FF'
-   cyan:    '0xA1EFE4'
-   white:   '0xF8F8F2'
+    black:   '0x000000'
+    red:     '0xd54e53'
+    green:   '0xb9ca4a'
+    yellow:  '0xe6c547'
+    blue:    '0x7aa6da'
+    magenta: '0xc397d8'
+    cyan:    '0x70c0ba'
+    white:   '0xffffff'
 
   # Bright colors
   bright:
-   black:   '0x75715E'
-   red:     '0xF92672'
-   green:   '0xA6E22E'
-   yellow:  '0xF4BF75'
-   blue:    '0x61afef'
-   magenta: '0xAE81FF'
-   cyan:    '0xA1EFE4'
-   white:   '0xF9F8F5'
+    black:   '0x666666'
+    red:     '0xff3334'
+    green:   '0x9ec400'
+    yellow:  '0xe7c547'
+    blue:    '0x7aa6da'
+    magenta: '0xb77ee0'
+    cyan:    '0x54ced6'
+    white:   '0xffffff'
+
+  # Dim colors
+  #
+  # If the dim colors are not set, they will be calculated automatically based
+  # on the `normal` colors.
+  dim:
+    black:   '0x333333'
+    red:     '0xf2777a'
+    green:   '0x99cc99'
+    yellow:  '0xffcc66'
+    blue:    '0x6699cc'
+    magenta: '0xcc99cc'
+    cyan:    '0x66cccc'
+    white:   '0xdddddd'
+
+  # Indexed Colors
+  #
+  # The indexed colors include all colors from 16 to 256.
+  # When these are not set, they're filled with sensible defaults.
+  #indexed_colors:
+  #  - { index: 16, color: '0x000000' }
 
 # Visual Bell
 #
@@ -185,6 +223,7 @@ colors:
 visual_bell:
   animation: EaseOutExpo
   duration: 0
+  color: '0xffffff'
 
 # Background opacity
 #
@@ -266,22 +305,22 @@ live_config_reload: true
 # You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
 # Entries in `shell.args` are passed unmodified as arguments to the shell.
 shell:
- program: /usr/bin/zsh
- args:
-   - -c
-   - tmux new-session -t global-session
+  program: /bin/sh
+  args:
+    - -c
+    - /jackson/home/repositories/sabrehagen/desktop-environment/scripts/shell.sh
 
 # Key bindings
 #
 # Key bindings are specified as a list of objects. Each binding will specify
 # a key and modifiers required to trigger it, terminal modes where the binding
 # is applicable, and what should be done when the key binding fires. It can
-# either send a byte sequnce to the running application (`chars`), execute
+# either send a byte sequence to the running application (`chars`), execute
 # a predefined action (`action`) or fork and execute a specified command plus
 # arguments (`command`).
 #
 # Example:
-#   `- { key: V, mods: Command, action: Paste }`
+#   `- { key: V, mods: Control|Shift, action: Paste }`
 #
 # Available fields:
 #   - key
@@ -304,7 +343,7 @@ shell:
 #     `showkey --scancodes`
 #
 # Values for `mods`:
-#   - Command
+#   - Super
 #   - Control
 #   - Shift
 #   - Alt
@@ -336,6 +375,7 @@ shell:
 #   - Hide
 #   - Quit
 #   - ClearLogNotice
+#   - SpawnNewInstance
 #
 # Values for `command`:
 #   The `command` field must be a map containing a `program` string and
@@ -455,9 +495,4 @@ key_bindings:
   - { key: F10,      mods: Super,   chars: "\x1b[21;3~"                  }
   - { key: F11,      mods: Super,   chars: "\x1b[23;3~"                  }
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                  }
-  - { key: Right,    mods: Alt|Control,     chars: "\x1b[1;7C"           }
-  - { key: Left,     mods: Alt|Control,     chars: "\x1b[1;7D"           }
-  - { key: Up,       mods: Alt|Shift,       chars: "\x1b[1;4A"           }
-  - { key: Down,     mods: Alt|Shift,       chars: "\x1b[1;4B"           }
-  - { key: Right,    mods: Alt|Shift,       chars: "\x1b[1;4C"           }
-  - { key: Left,     mods: Alt|Shift,       chars: "\x1b[1;4D"           }
+
