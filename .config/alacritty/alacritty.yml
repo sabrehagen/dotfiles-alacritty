@@ -308,7 +308,7 @@ shell:
   program: /bin/sh
   args:
     - -c
-    - /jackson/home/repositories/sabrehagen/desktop-environment/scripts/shell.sh
+    - /jackson/home/repositories/sabrehagen/desktop-environment/scripts/exec.sh tmux
 
 # Key bindings
 #
