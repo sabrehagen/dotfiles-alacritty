@@ -29,18 +29,12 @@ window:
     x: 2
     y: 2
 
-  # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
-
   # Window decorations
   #
   # Values for `decorations`:
   #     - full: Borders and title bar
   #     - none: Neither borders nor title bar
-  decorations: none
-
-  # When true, alacritty starts maximized.
-  start_maximized: true
+  decorations: full
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -70,7 +64,7 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-tabspaces: 2
+tabspaces: 8
 
 # Font configuration (changes require restart)
 #
@@ -109,7 +103,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 5.0
+  size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -124,82 +118,45 @@ font:
     x: 0
     y: 0
 
+  # Scale the font size based on the monitor's DPI. This will lead to bigger text on HiDPI
+  # screens and make reading text a little easier.
+  # On X11 it is possible to change the DPI for each instance of alacritty by using
+  # `WINIT_HIDPI_FACTOR=1.0 alacritty` to scale the font.
+  scale_with_dpi: true
+
 # Display the time it takes to redraw each frame.
 render_timer: false
-
-# Keep the log file after quitting Alacritty.
-persistent_logging: false
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
+# Colors (Pencil Dark)
 colors:
-  # Default colors
-  primary:
-    background: '0x000000'
-    foreground: '0xeaeaea'
+ # Default Colors
+ primary:
+   background: '0x212121'
+   foreground: '0xf1f1f1'
+ # Normal colors
+ normal:
+   black:   '0x212121'
+   red:     '0xc30771'
+   green:   '0x10a778'
+   yellow:  '0xa89c14'
+   blue:    '0x008ec4'
+   magenta: '0x523c79'
+   cyan:    '0x20a5ba'
+   white:   '0xe0e0e0'
+ # Bright colors
+ bright:
+   black:   '0x212121'
+   red:     '0xfb007a'
+   green:   '0x5fd7af'
+   yellow:  '0xf3e430'
+   blue:    '0x20bbfc'
+   magenta: '0x6855de'
+   cyan:    '0x4fb8cc'
+   white:   '0xf1f1f1'
 
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not present.
-    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-    # is `false`, the normal foreground color will be used.
-    #dim_foreground: '0x9a9a9a'
-    #bright_foreground: '0xffffff'
-
-  # Cursor colors
-  #
-  # Colors which should be used to draw the terminal cursor. If these are unset,
-  # the cursor color will be the inverse of the cell color.
-  #cursor:
-  #  text: '0x000000'
-  #  cursor: '0xffffff'
-
-  # Normal colors
-  normal:
-    black:   '0x000000'
-    red:     '0xd54e53'
-    green:   '0xb9ca4a'
-    yellow:  '0xe6c547'
-    blue:    '0x7aa6da'
-    magenta: '0xc397d8'
-    cyan:    '0x70c0ba'
-    white:   '0xffffff'
-
-  # Bright colors
-  bright:
-    black:   '0x666666'
-    red:     '0xff3334'
-    green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
-    magenta: '0xb77ee0'
-    cyan:    '0x54ced6'
-    white:   '0xffffff'
-
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
-  dim:
-    black:   '0x333333'
-    red:     '0xf2777a'
-    green:   '0x99cc99'
-    yellow:  '0xffcc66'
-    blue:    '0x6699cc'
-    magenta: '0xcc99cc'
-    cyan:    '0x66cccc'
-    white:   '0xdddddd'
-
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #indexed_colors:
-  #  - { index: 16, color: '0x000000' }
-
-# Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
 # rung, the terminal background will be set to white and transition back to the
@@ -223,7 +180,6 @@ colors:
 visual_bell:
   animation: EaseOutExpo
   duration: 0
-  color: '0xffffff'
 
 # Background opacity
 #
@@ -304,23 +260,22 @@ live_config_reload: true
 #
 # You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
 # Entries in `shell.args` are passed unmodified as arguments to the shell.
-shell:
-  program: /bin/sh
-  args:
-    - -c
-    - /jackson/home/repositories/sabrehagen/desktop-environment/scripts/exec.sh tmux
+#shell:
+#  program: /bin/bash
+#  args:
+#    - --login
 
 # Key bindings
 #
 # Key bindings are specified as a list of objects. Each binding will specify
 # a key and modifiers required to trigger it, terminal modes where the binding
 # is applicable, and what should be done when the key binding fires. It can
-# either send a byte sequence to the running application (`chars`), execute
+# either send a byte sequnce to the running application (`chars`), execute
 # a predefined action (`action`) or fork and execute a specified command plus
 # arguments (`command`).
 #
 # Example:
-#   `- { key: V, mods: Control|Shift, action: Paste }`
+#   `- { key: V, mods: Command, action: Paste }`
 #
 # Available fields:
 #   - key
@@ -343,7 +298,7 @@ shell:
 #     `showkey --scancodes`
 #
 # Values for `mods`:
-#   - Super
+#   - Command
 #   - Control
 #   - Shift
 #   - Alt
@@ -374,8 +329,6 @@ shell:
 #   - ClearHistory
 #   - Hide
 #   - Quit
-#   - ClearLogNotice
-#   - SpawnNewInstance
 #
 # Values for `command`:
 #   The `command` field must be a map containing a `program` string and
@@ -394,12 +347,12 @@ key_bindings:
   - { key: C,        mods: Control|Shift,    action: Copy                }
   - { key: Paste,                   action: Paste                        }
   - { key: Copy,                    action: Copy                         }
+  - { key: Q,        mods: Command, action: Quit                         }
+  - { key: W,        mods: Command, action: Quit                         }
   - { key: Insert,   mods: Shift,   action: PasteSelection               }
   - { key: Key0,     mods: Control, action: ResetFontSize                }
   - { key: Equals,   mods: Control, action: IncreaseFontSize             }
   - { key: Subtract, mods: Control, action: DecreaseFontSize             }
-  - { key: L,        mods: Control, action: ClearLogNotice               }
-  - { key: L,        mods: Control, chars: "\x0c"                        }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
@@ -495,9 +448,3 @@ key_bindings:
   - { key: F10,      mods: Super,   chars: "\x1b[21;3~"                  }
   - { key: F11,      mods: Super,   chars: "\x1b[23;3~"                  }
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                  }
-  - { key: Right,    mods: Alt|Control,     chars: "\x1b[1;7C"           }
-  - { key: Left,     mods: Alt|Control,     chars: "\x1b[1;7D"           }
-  - { key: Up,       mods: Alt|Shift,       chars: "\x1b[1;4A"           }
-  - { key: Down,     mods: Alt|Shift,       chars: "\x1b[1;4B"           }
-  - { key: Right,    mods: Alt|Shift,       chars: "\x1b[1;4C"           }
-  - { key: Left,     mods: Alt|Shift,       chars: "\x1b[1;4D"           }
