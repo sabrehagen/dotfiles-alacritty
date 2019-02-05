@@ -158,7 +158,7 @@ shell:
   program: /bin/sh
   args:
     - -c
-    - /jackson/home/repositories/sabrehagen/desktop-environment/scripts/exec.sh tmux
+    - /jackson/home/repositories/sabrehagen/desktop-environment/scripts/exec.sh tmux new-session -t desktop-environment
 
 colors:
   # Default colors
