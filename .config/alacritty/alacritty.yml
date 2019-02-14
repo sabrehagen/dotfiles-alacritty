@@ -300,7 +300,10 @@ mouse:
     #   - (macOS) open
     #   - (Linux) xdg-open
     #   - (Windows) explorer
-    #launcher: xdg-open
+    launcher: 
+      program: /jackson/home/repositories/sabrehagen/desktop-environment/scripts/exec.sh
+      args:
+        - google-chrome
 
     # URL modifiers
     #
@@ -567,7 +570,7 @@ key_bindings:
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                  }
   - { key: NumpadEnter,             chars: "\n"                          }
 
-  # Jackson's custom keybindings
+  # custom keybindings
 
   - { key: Right,    mods: Alt|Control,     chars: "\x1b[1;7C"           }
   - { key: Left,     mods: Alt|Control,     chars: "\x1b[1;7D"           }
