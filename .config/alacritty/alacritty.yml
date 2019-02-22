@@ -158,7 +158,7 @@ shell:
   program: /bin/sh
   args:
     - -c
-    - /jackson/desktop-environment/scripts/exec.sh gosu "jackson tmux new-session -s desktop-environment-$(date +%s) -t desktop-environment"
+    - /jackson/desktop-environment/scripts/exec.sh tmux new-session -s desktop-environment-$(date +%s) -t desktop-environment
 
 colors:
   # Default colors
