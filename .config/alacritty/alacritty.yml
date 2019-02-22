@@ -41,7 +41,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - buttonless: Title bar, transparent background and title bar buttons
   #     - transparent: Title bar, transparent background, but no title bar buttons
-  decorations: full
+  decorations: none
 
   # When true, alacritty starts maximized.
   start_maximized: true
@@ -158,7 +158,7 @@ shell:
   program: /bin/sh
   args:
     - -c
-    - /jackson/desktop-environment/scripts/exec.sh tmux new-session -t desktop-environment
+    - /jackson/desktop-environment/scripts/exec.sh gosu "jackson tmux new-session -s desktop-environment-$(date +%s) -t desktop-environment"
 
 colors:
   # Default colors
@@ -303,6 +303,8 @@ mouse:
     launcher: 
       program: /jackson/desktop-environment/scripts/exec.sh
       args:
+        - gosu
+        - jackson
         - google-chrome
 
     # URL modifiers
