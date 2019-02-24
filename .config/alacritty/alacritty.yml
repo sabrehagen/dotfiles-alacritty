@@ -158,7 +158,7 @@ shell:
   program: /bin/sh
   args:
     - -c
-    - /jackson/desktop-environment/scripts/exec.sh tmux new-session -s desktop-environment-$(date +%s) -t desktop-environment
+    - /jackson/desktop-environment/docker/scripts/exec.sh tmux new-session -s desktop-environment-$(date +%s) -t desktop-environment
 
 colors:
   # Default colors
@@ -301,7 +301,7 @@ mouse:
     #   - (Linux) xdg-open
     #   - (Windows) explorer
     launcher: 
-      program: /jackson/desktop-environment/scripts/exec.sh
+      program: /jackson/desktop-environment/docker/scripts/exec.sh
       args:
         - gosu
         - jackson
