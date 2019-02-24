@@ -303,8 +303,6 @@ mouse:
     launcher: 
       program: /jackson/desktop-environment/docker/scripts/exec.sh
       args:
-        - gosu
-        - jackson
         - google-chrome
 
     # URL modifiers
