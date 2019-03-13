@@ -471,7 +471,6 @@ key_bindings:
 
   - { key: Paste,                   action: Paste                        }
   - { key: Copy,                    action: Copy                         }
-  - { key: L,        mods: Control, action: ClearLogNotice               }
   - { key: L,        mods: Control, chars: "\x0c"                        }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
@@ -586,3 +585,4 @@ key_bindings:
   - { key: Down,     mods: Control|Shift,   chars: "\x1b[1;5B"           }
   - { key: Right,    mods: Control|Shift,   chars: "\x1b[1;5C"           }
   - { key: Left,     mods: Control|Shift,   chars: "\x1b[1;5D"           }
+  - { key: Space,    mods: Shift,           chars: "\x1b[5~"             }
