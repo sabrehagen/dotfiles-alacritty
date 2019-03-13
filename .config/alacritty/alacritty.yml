@@ -581,8 +581,8 @@ key_bindings:
   - { key: J,        mods: Alt|Shift,       chars: "\x1b[1;4B"           }
   - { key: L,        mods: Alt|Shift,       chars: "\x1b[1;4C"           }
   - { key: H,        mods: Alt|Shift,       chars: "\x1b[1;4D"           }
-  - { key: Up,       mods: Control|Shift,   chars: "\x1b[1;5A"           }
-  - { key: Down,     mods: Control|Shift,   chars: "\x1b[1;5B"           }
-  - { key: Right,    mods: Control|Shift,   chars: "\x1b[1;5C"           }
-  - { key: Left,     mods: Control|Shift,   chars: "\x1b[1;5D"           }
+  - { key: J,        mods: Control|Shift,   chars: "\x1b[1;5A"           }
+  - { key: K,        mods: Control|Shift,   chars: "\x1b[1;5B"           }
+  - { key: H,        mods: Control|Shift,   chars: "\x1b[1;5C"           }
+  - { key: L,        mods: Control|Shift,   chars: "\x1b[1;5D"           }
   - { key: Space,    mods: Shift,           chars: "\x1b[5~"             }
