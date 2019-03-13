@@ -583,6 +583,6 @@ key_bindings:
   - { key: H,        mods: Alt|Shift,       chars: "\x1b[1;4D"           }
   - { key: J,        mods: Control|Shift,   chars: "\x1b[1;5A"           }
   - { key: K,        mods: Control|Shift,   chars: "\x1b[1;5B"           }
-  - { key: H,        mods: Control|Shift,   chars: "\x1b[1;5C"           }
-  - { key: L,        mods: Control|Shift,   chars: "\x1b[1;5D"           }
+  - { key: L,        mods: Control|Shift,   chars: "\x1b[1;5C"           }
+  - { key: H,        mods: Control|Shift,   chars: "\x1b[1;5D"           }
   - { key: Space,    mods: Shift,           chars: "\x1b[5~"             }
