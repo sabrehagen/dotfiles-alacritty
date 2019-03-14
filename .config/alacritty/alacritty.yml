@@ -585,4 +585,3 @@ key_bindings:
   - { key: K,        mods: Control|Shift,   chars: "\x1b[1;5B"           }
   - { key: L,        mods: Control|Shift,   chars: "\x1b[1;5C"           }
   - { key: H,        mods: Control|Shift,   chars: "\x1b[1;5D"           }
-  - { key: Space,    mods: Shift,           chars: "\x1b[5~"             }
