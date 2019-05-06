@@ -158,7 +158,7 @@ shell:
   program: /bin/sh
   args:
     - -c
-    - /jackson/desktop-environment/docker/scripts/exec.sh tmux new-session -s desktop-environment-shell-$(date +%s) -t desktop-environment-shell
+    - /home/jackson/repositories/sabrehagen/desktop-environment/docker/scripts/exec.sh tmux new-session -s desktop-environment-shell-$(date +%s) -t desktop-environment-shell
 
 colors:
   # Default colors
