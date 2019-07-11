@@ -152,7 +152,7 @@ shell:
   program: /bin/sh
   args:
     - -c
-    - /home/jackson/repositories/sabrehagen/desktop-environment/docker/scripts/exec.sh tmux new-session -s desktop-environment-shell-$(date +%s) -t desktop-environment-shell
+    - /home/jackson/repositories/sabrehagen/desktop-environment/docker/scripts/tmux.sh
 
 colors:
   # Default colors
@@ -294,7 +294,7 @@ mouse:
     #   - (macOS) open
     #   - (Linux) xdg-open
     #   - (Windows) explorer
-    launcher: 
+    launcher:
       program: /jackson/desktop-environment/docker/scripts/exec.sh
       args:
         - google-chrome
