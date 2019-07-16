@@ -294,10 +294,10 @@ mouse:
     #   - (macOS) open
     #   - (Linux) xdg-open
     #   - (Windows) explorer
-    launcher:
-      program: /jackson/desktop-environment/docker/scripts/exec.sh
-      args:
-        - google-chrome
+    # launcher:
+    #   program: /home/jackson/repositories/sabrehagen/desktop-environment/docker/scripts/exec.sh
+    #   args:
+    #     - google-chrome
 
     # URL modifiers
     #
