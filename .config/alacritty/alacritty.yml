@@ -409,7 +409,8 @@ key_bindings:
   #- { key: Q,        mods: Command, action: Quit                         }
   #- { key: W,        mods: Command, action: Quit                         }
 
-  - { key: Paste,                   action: Paste                        }
+ #- { key: Paste,                   action: Paste                        }
+  - { key: V,  mods: Control|Shift, chars: "" }
   - { key: Copy,                    action: Copy                         }
   - { key: L,        mods: Control, chars: "\x0c"                        }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
