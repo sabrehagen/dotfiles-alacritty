@@ -109,7 +109,7 @@ shell:
     - tmux new-session -s desktop-environment-shell-$(date +%s) -t desktop-environment-shell
 
 import:
-  - ~/.cache/wal/colors-alacritty.yml
+  - $HOME/.cache/wal/colors-alacritty.yml
 
 # Visual Bell
 #
