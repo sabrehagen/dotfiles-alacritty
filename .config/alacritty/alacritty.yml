@@ -138,6 +138,9 @@ bell:
   duration: 0
   color: '0xffffff'
 
+terminal:
+  osc52: CopyPaste
+
 # Mouse bindings
 #
 # Available fields:
