@@ -1,4 +1,4 @@
-import = ["/home/jackson/.config/alacritty/$HOME/.cache/wal/colors-alacritty.yml"]
+import = ["/home/jackson/.cache/wal/colors-alacritty.yml"]
 live_config_reload = true
 
 [bell]
